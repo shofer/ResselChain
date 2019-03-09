@@ -52,7 +52,7 @@ public class AssetStateTable {
 		final int amount = tx.getAmount();
 
 		// check if sender and receiver is known
-		if (!this.areParcitipansValid(tx)) {
+		if (!this.areParticipantsValid(tx)) {
 			return false;
 		}
 
@@ -78,7 +78,7 @@ public class AssetStateTable {
 		final int amount = tx.getAmount();
 
 		// check if sender and receiver is known
-		if (!this.areParcitipansValid(tx)) {
+		if (!this.areParticipantsValid(tx)) {
 			return false;
 		}
 
@@ -93,7 +93,7 @@ public class AssetStateTable {
 		return true;
 	}
 
-	private boolean areParcitipansValid(Transaction tx) {
+	private boolean areParticipantsValid(Transaction tx) {
 		final String sender = tx.getSender();
 		final String receiver = tx.getReceiver();
 		if (!participantNameShares.containsKey(sender) || !participantNameShares.containsKey(receiver)) {
