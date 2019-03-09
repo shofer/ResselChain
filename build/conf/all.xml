@@ -1,9 +1,21 @@
 <?xml version="1.0"?>
 <Participants>
 	<Participant>
-		<Name>Example</Name>
+		<Name>Node 1</Name>
 		<Address>127.0.0.1</Address>
-		<Port>57972</Port>
-		<PublicKey>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDxru2SOzfWTSLCpA1wKwoHbpGAombgC5QKCYLOLoa9qhVxyU2Gkfi0JsEn0ZylDxiU5DYcz+VcIkBH1fY1aFMdDhr+jRYQXTxxynv3fp6X6I7kRr2qsAb2bmgt+3SrviPvM3oe042n/of/WqFgIDWrIPS+SggSPjCs6Rwg7cggdwIDAQAB</PublicKey>
+		<Port>57973</Port>
+		<PublicKey>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCm3l4IZBF4OCGTbUp8Vyjo2Ryj+QtG0+FD/2PKUzVsBDQYMEq8AY2lfHqNCjs5ootatj49Z9rjGGzvkkLUlDS0bdq49hH8N0FikAm8hg5zdypLznac+y5ivdzuhhM4/F77eTagXxjl2Q+FrvBDJe/KruyeZiVAVTX/xg83CxgGMwIDAQAB</PublicKey>
+	</Participant>
+	<Participant>
+		<Name>Node 2</Name>
+		<Address>127.0.0.1</Address>
+		<Port>57974</Port>
+		<PublicKey>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCssSpg3S5or/C9xFAQC7tuHfBvVIKJm8z+GtKXtzyK/EXtbhjGtVraIqTHfXikcFkWxO7gvRXmJaEh3kE55Wz+NM+c3e169Lpxyg5vhVt1OHZ/HlrjG1EhwEIc7+j8VB70LpWJqrCSU7HjJ0shJmHiIlHK4hwqCoQB0pdLiD7k+QIDAQAB</PublicKey>
+	</Participant>
+	<Participant>
+		<Name>Node 3</Name>
+		<Address>127.0.0.1</Address>
+		<Port>57975</Port>
+		<PublicKey>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCgGWfMKm/pmFcR0EOmy4SON+ZUlETvDN5axckjbr5jo0Hz6Eu3xnSxYXNNlnFmBtxYEdmHVgzabeinuw8TnIaoMZSJbPUGhvOKgUjZsOlE8fYLtdCaKH5ACCfpXfGEpOCFhU+oSf05U9FBZ2TXIMQleG1Ie8hOeXcmWVV76g5IawIDAQAB</PublicKey>
 	</Participant>
 </Participants>

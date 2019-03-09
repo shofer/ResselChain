@@ -1,0 +1,2 @@
+java -jar ./jars/RC.jar ./conf/node1.xml ./conf/all.xml
+

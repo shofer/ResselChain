@@ -1,0 +1,1 @@
+java -jar ../../build/jars/RC.jar ../../build/conf/node3.xml ../../build/conf/all.xml

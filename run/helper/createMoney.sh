@@ -1,0 +1,1 @@
+java -jar ../../build/jars/UtilityTxSender.jar -sxml ../../build/conf/node1.xml ../../build/conf/node1.xml myNewAssetName 10000 ../../build/conf/node1.xml 5000 ../../build/conf/node2.xml 2500 ../../build/conf/node3.xml 2500
