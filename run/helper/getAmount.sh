@@ -1,1 +1,1 @@
-java -jar ../../build/jars/Amount.jar 127.0.0.1 57974 myNewAssetName 1545404491
+java -jar ../../build/jars/Amount.jar 127.0.0.1 57974 eMundi 1545404491

@@ -156,5 +156,14 @@ public class Transaction implements Serializable {
 	public String getAssetName() {
 		return assetName;
 	}
+
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(assetName);
+		sb.append(receiver);
+		sb.append(sender);
+		sb.append(amount);
+		return sb.toString();
+	}
 	
 }
