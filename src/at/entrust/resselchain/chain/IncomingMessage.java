@@ -37,6 +37,8 @@ import nu.xom.Element;
 import nu.xom.ParsingException;
 import nu.xom.Serializer;
 
+// TODO: DISCUSS
+
 public class IncomingMessage implements IncomingMessageHandler {
 
 	private void sendResponse (String message, PrintWriter output){

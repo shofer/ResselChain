@@ -43,6 +43,8 @@ public class AssetStateTable {
 		Logger.FULL.log(assetName);
 		participantNames.forEach((name -> Logger.FULL.log(name)));
 		participantNameShares.forEach((name, share) -> Logger.FULL.log(name + " " + share));
+		reinitConnection();
+		createTableIfNotExists();
 	}
 
 
@@ -56,9 +58,9 @@ public class AssetStateTable {
 			return false;
 		}
 
-		// check if receiver has enough amount of eMundi
+		// check if receiver has enough amount of asset
 		if (participantNameShares.get(receiver) < amount) {
-			Logger.FULL.log("Receiver has not enough eMundi");
+			Logger.FULL.log("Receiver has not enough " + assetName);
 			return false;
 		}
 
@@ -82,9 +84,9 @@ public class AssetStateTable {
 			return false;
 		}
 
-		// check if sender has enough amount of eMundi
+		// check if sender has enough amount of asset
 		if (participantNameShares.get(sender) < Math.abs(amount)) {
-			Logger.FULL.log("Sender has not enough eMundi");
+			Logger.FULL.log("Sender has not enough " + assetName);
 			return false;
 		}
 
@@ -100,6 +102,73 @@ public class AssetStateTable {
 			Logger.FULL.log("Sender or Receiver unknown");
 			return false;
 		}
+		return true;
+	}
+
+	private void reinitConnection() {
+		try
+		{
+			if (connection != null && !connection.isClosed())
+				close();
+		}
+		catch ( Exception e ) {
+			connection = null;
+			Logger.ERR.log("Error determining status of SQL connection for asset state table: " + e.getMessage());
+		}
+		try
+		{
+			Class.forName("org.sqlite.JDBC");
+			connection = DriverManager.getConnection("jdbc:sqlite:assetState.db");
+		} catch ( Exception e ) {
+			connection = null;
+			Logger.ERR.log("Error opening SQL connection for asset state table: " + e.getMessage());
+			Logger.ERR.log("Exiting after failure to connect to SQL data base.");
+			System.exit(1);
+		}
+	}
+
+	synchronized public void close() {
+		try {
+			if (connection != null)
+				connection.close();
+		} catch (SQLException e) {
+			Logger.ERR.log("Error closing SQL connection for Tx State tables " + e.getMessage());
+		}
+	}
+
+	private String createTableSQLString(){
+		String sql = "CREATE TABLE IF NOT EXISTS 'assetState' " +
+				"(participant TEXT PRIMARY KEY, " +
+				"value INT)";
+		return sql;
+	}
+
+	synchronized private int executeUpdateQuery(String query)
+	{
+		int ret = -1;
+		try
+		{
+			if (!connection.isValid(5)) //5 second timeout
+				reinitConnection();
+			Statement stmt = connection.createStatement();
+			ret = stmt.executeUpdate(query);
+			stmt.close();
+			//Logger.FULL.log("Executed SQL update %" + query + "% for asset " + assetName);
+		} catch ( Exception e ) {
+			ret = -1;
+			Logger.ERR.log("Error executing SQL update %" + query + ": " + e.getMessage());
+		}
+		return ret;
+	}
+
+
+	synchronized private boolean createTableIfNotExists() {
+		int ret = executeUpdateQuery(createTableSQLString());
+		if (ret == -1) {
+			Logger.FULL.log("Table for txstates could not be created");
+			return false;
+		}
+		Logger.FULL.log("Table for txstates created successfully");
 		return true;
 	}
 

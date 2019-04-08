@@ -122,7 +122,7 @@ public class UtilityTxSender {
 				
 				
 				String assetName = args[3];
-				double kWPeak = Double.valueOf(args[4]);
+				double assetMax = Double.valueOf(args[4]);
 				
 				ArrayList<Participant> participants = new ArrayList<>();
 				HashMap<Participant, Integer>  participantAmounts = new HashMap<>();

@@ -66,13 +66,13 @@ public enum GlobalConfig {
 	
 	// Difficulty for mining
 	// set this to 20 for approx. 5 minutes/block on Raspberry Pi 3
-	public int DIFFICULTY = 22;//22;
+	public int DIFFICULTY = 5;//22;
 	
 	// Port this node listens for incoming messages (is set by config.xml at startup)
 	public int INCOMING_MESSAGE_PORT = -1; //22222;
 	
 	// Seconds for the mining thread to sleep before attempting to mine a new block
-	public int MINING_THREAD_SLEEP_MILISECONDS = 10;
+	public int MINING_THREAD_SLEEP_MILISECONDS = 1000;
 	
 	// Miliseconds for the communication threads to sleep before attempting to read or send messages
 	public int COMMUNICATION_THREAD_SLEEP_MILISECONDS = 1;

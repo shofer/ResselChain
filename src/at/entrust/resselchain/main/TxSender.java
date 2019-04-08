@@ -104,7 +104,9 @@ public class TxSender {
 				String receipientName = receiverNodeRoot.getChildElements("Name").get(0).getValue();
 				String assetName = args[3];
 				int amount = Integer.valueOf(args[4]);
-				
+
+				// TODO: DISCUSS what about args 5 and 6?
+
 				GlobalConfig.INSTANCE.PARTICIPANT_CONFIG = new ParticipantConfig(privateKey, null, "NewTx");
 
 				sendTx(nodeAddress, nodePort, senderName, privateKey, receipientName, amount, assetName);
